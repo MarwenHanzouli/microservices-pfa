@@ -1,0 +1,1 @@
+curl -XPUT -H "Content-Type: application/json" localhost:9200/microservice-cvs -d @mapping.json

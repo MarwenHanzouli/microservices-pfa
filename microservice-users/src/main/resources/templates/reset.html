@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Forget password</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Reset your password</h1>
+        <div class="row">
+            <form action="#" th:action="@{/reset-password/update}" th:object="${resetObject}" method="POST">
+                <input type="text" th:field="*{email}" hidden/>
+                <label for="password">Mot de passe: </label>
+                <input type="password" th:field="*{newPassword}" id="password" required/>
+
+                <label for="repassword">Répéter le mot de passe :</label>
+                <input type="password" th:field="*{confirmNewPassword}" id="repassword" required/>
+
+                <button class="btn btn-success" type="submit"
+                        >Envoyer</button>
+                <button class="btn btn-warn" type="reset"
+                >Annuler</button>
+            </form>
+        </div>
+
+    </div>
+    <script>
+
+    </script>
+    <script type="text/javascript" src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+    </body>
+
+</html>

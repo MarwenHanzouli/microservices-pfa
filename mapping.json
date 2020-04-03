@@ -1,0 +1,81 @@
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 1,
+      "number_of_replicas": 1
+    },
+    "analysis": {
+      "analyzer": {
+        "analyzer-name": {
+          "type": "custom",
+          "tokenizer": "keyword",
+          "filter": "lowercase"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "fields": {
+        "properties": {
+          "cvParser": {
+            "type": "text",
+            "fields": {
+              "raw": {
+                "type": "keyword",
+                "ignore_above": 256
+              }
+            }
+          },
+          "dateDepot": {
+            "type": "long"
+          },
+          "etat": {
+            "type": "boolean"
+          },
+          "fichier": {
+            "type": "nested",
+            "include_in_parent": true,
+            "properties": {
+              "encoded": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "nom": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              },
+              "type": {
+                "type": "text",
+                "fields": {
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+              }
+            }
+          },
+          "id": {
+            "type": "long"
+          },
+          "idCandidat": {
+            "type": "long"
+          }
+        }
+      }
+    }
+  }
+}
+
+

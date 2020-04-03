@@ -1,0 +1,38 @@
+server:
+  port: 9004
+
+spring:
+  application:
+    name: zuul-server
+#Eureka
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:9102/eureka/
+
+zuul:
+  host:
+    connect-timeout-millis: 5000000
+    socket-timeout: 5000000
+  ignoredServices: '*'
+  routes:
+    microservice-users:
+      path: /microservice-users/**
+      serviceId: MICROSERVICE-USERS
+      stripPrefix: true
+    microservice-offers:
+      path: /microservice-users/**
+      serviceId: MICROSERVICE-USERS
+    microservice-cv:
+      path: microservice-cv/**
+      serviceId: MICROSERVICE-CV
+
+#JWT config
+jwt:
+  secret: the_secret_key_is_marw
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000

@@ -65,6 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/microservice-users/confirmation/**",
                 "/microservice-users/reset-password/**",
                 "/microservice-offers/offres/getAll",
+		"/microservice-offers/offres/getOffreById/**",
                 "/microservice-offers/offres/getAllPaginate",
                 "/microservice-offers/offres/getAllNotEnded",
                 "/microservice-offers/offres/getAllNotEndedBefore/**",
@@ -74,27 +75,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		        .antMatchers("/microservice-users/users/addPhoto/**").authenticated()
 		        .antMatchers("/microservice-users/users/update-password/**").authenticated()
-
+			.antMatchers("/microservice-users/candidats/findById/**").authenticated()
                 //les autorisations de candidat
-                .antMatchers("/microservice-users/candidats/**").hasAuthority("CANDIDAT")
+                .antMatchers("/microservice-users/candidats/update/**").hasAuthority("CANDIDAT")
                 .antMatchers("/microservice-cv/cvs/add/**").hasAuthority("CANDIDAT")
                 .antMatchers("/microservice-cv/cvs/getOne/**").hasAuthority("CANDIDAT")
                 .antMatchers("/microservice-cv/cvs/delete/**/**").hasAuthority("CANDIDAT")
                 .antMatchers("/microservice-cv/cvs/getByCandidat/**").hasAuthority("CANDIDAT")
                 .antMatchers("/microservice-cv/cvs/getByCandidatPaginate/**").hasAuthority("CANDIDAT")
-                .antMatchers("/microservice-offers/offres/getOffreById/**").hasAuthority("CANDIDAT")
                 .antMatchers("/microservice-offers/candidatures/add/candidat/**/offre/**/cv/**").hasAuthority("CANDIDAT")
                 .antMatchers("/microservice-offers/candidatures/getAllByCandidat/**").hasAuthority("CANDIDAT")
                 .antMatchers("/microservice-offers/candidatures/delete/**/**").hasAuthority("CANDIDAT")
 
                 //les autorisations de manager
-                .antMatchers("/microservice-cv/cvs/getOne/**").hasAuthority("MANAGER")
+		.antMatchers("/microservice-users/managers/**").hasAuthority("MANAGER")
+                //.antMatchers("/microservice-cv/cvs/getOne/**").hasAuthority("MANAGER")
                 .antMatchers("/microservice-cv/cvs/getAll").hasAuthority("MANAGER")
                 .antMatchers("/microservice-cv/cvs/getAllPaginate").hasAuthority("MANAGER")
                 .antMatchers("/microservice-cv/cvs/getByTagPaginate/**").hasAuthority("MANAGER")
                 .antMatchers("/microservice-cv/cvs/getByTag/**").hasAuthority("MANAGER")
-                .antMatchers("/microservice-cv/cvs/getByCandidat/**").hasAuthority("MANAGER")
-                .antMatchers("/microservice-cv/cvs/getByCandidatPaginate/**").hasAuthority("MANAGER")
+                //.antMatchers("/microservice-cv/cvs/getByCandidat/**").hasAuthority("MANAGER")
+                //.antMatchers("/microservice-cv/cvs/getByCandidatPaginate/**").hasAuthority("MANAGER")
                 .antMatchers("/microservice-cv/cvs/delete/**").hasAuthority("MANAGER")
                 .antMatchers("/microservice-offers/competences/**").hasAuthority("MANAGER")
                 .antMatchers("/microservice-offers/organismes/**").hasAuthority("MANAGER")

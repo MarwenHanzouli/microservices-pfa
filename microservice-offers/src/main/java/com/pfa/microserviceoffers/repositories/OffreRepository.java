@@ -30,6 +30,7 @@ public interface OffreRepository extends JpaRepository<Offre,Long> {
     List<Offre> findAllByNiveauDemande(Niveau niveau);
     List<Offre> findAllByDescriptionContainingIgnoreCase(String description);
     List<Offre> findAllByDateOffre(LocalDateTime date);
+    List<Offre> findAllByOrderByDateOffreAsc();
     List<Offre> findAllByDateFin(LocalDateTime date);
     List<Offre> findAllByDateFinBefore(LocalDateTime date);
     List<Offre> findAllByDateFinAfter(LocalDateTime date);

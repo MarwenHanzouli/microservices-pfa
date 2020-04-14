@@ -23,10 +23,10 @@ zuul:
       serviceId: MICROSERVICE-USERS
       stripPrefix: true
     microservice-offers:
-      path: /microservice-users/**
+      path: /microservice-offers/**
       serviceId: MICROSERVICE-USERS
     microservice-cv:
-      path: microservice-cv/**
+      path: /microservice-cv/**
       serviceId: MICROSERVICE-CV
 
 #JWT config

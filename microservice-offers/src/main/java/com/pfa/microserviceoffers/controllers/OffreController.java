@@ -201,7 +201,7 @@ public class OffreController {
             throw new BadRequestException("Requête rejeté, verifie la date envoyé, (yyyy-mm-dd HH:mm:ss)");
         }
     }
-    @GetMapping("/getAllNotEndedBefore/{date}")
+    @GetMapping("/ /{date}")
     List<Offre> getAllOffresNotEndedBefore(@PathVariable(value = "date") String dateFin){
         try{
             return this.offreService.findAllOffresNotEndedBefore(dateFin);
